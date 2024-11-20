@@ -153,7 +153,6 @@ class AdjList:
         return True if path_exists else False
 
     def is_cyclic(self):
-        # source = list(self.graph.keys)[[0]]
         visited = set()
         path = set()
 
@@ -179,12 +178,6 @@ class AdjList:
                     return True
                 else:
                     return False
-
-    def topological_sort(self):
-        pass
-
-    def dijkstra(self, start):
-        pass
 
     def print_graph(self):
         for vertex, neighbor in self.graph.items():
@@ -220,27 +213,3 @@ if __name__ == "__main__":
     graph.dfs_iter("A")
     graph.bfs("A")
     graph.print_graph()
-
-    def is_cyclic(self):
-        visited = set()
-        path = set()  # Track current path
-
-        def dfs(vertex):
-            visited.add(vertex)
-            path.add(vertex)  # Add to current path
-
-            for neighbor in self.graph[vertex]:
-                if neighbor in path:  # If neighbor is in current path, we found a cycle
-                    return True
-                if neighbor not in visited:
-                    if dfs(neighbor):
-                        return True
-
-            path.remove(vertex)  # Remove from path when backtracking
-            return False
-
-        for vertex in self.graph:
-            if vertex not in visited:
-                if dfs(vertex):
-                    return True
-        return False

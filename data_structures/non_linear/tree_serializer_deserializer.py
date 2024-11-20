@@ -1,5 +1,6 @@
 from binary_search_tree import TreeNode
 
+
 class Codec:
     def build_tree(self):
         root = TreeNode(50)
@@ -10,7 +11,6 @@ class Codec:
         root.right.left = TreeNode(60)
         root.right.right = TreeNode(80)
         return root
-
 
     def in_order(self, root):
         if root:
@@ -51,6 +51,13 @@ class Codec:
         return dfs()
 
 
+def count_actual_nodes(serialized_str):
+    serialized_arr = serialized_str.split(",")
+    count = 0
+    for char in serialized_arr:
+        if char not in "#/None":
+            count += 1
+    return count
 
 
 def main():
@@ -63,20 +70,10 @@ def main():
     print()
     deserialized_tree = tree.deserialize(serialized_tree.split(","))
     tree.in_order(deserialized_tree)
-    # node_count = tree.count_actual_nodes(serialized_tree)
-    # print()
-    # print(node_count)
-
-    def count_actual_nodes(serialized_str):
-    # What logic would you use to count only valid nodes?
-    # Remember: you have both numbers and "None"/"#" in the string
-        serialized_arr = serialized_str.split(",")
-        count = 0
-        for char in serialized_arr:
-            if char not in "#/None":
-                count += 1
-        return count
-    node_count = count_actual_nodes(serialized_tree)
+    node_count = tree.count_actual_nodes(serialized_tree)
+    print()
     print(node_count)
+
+
 if __name__ == "__main__":
     main()

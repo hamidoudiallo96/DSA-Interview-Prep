@@ -49,7 +49,6 @@ class AdjMatrix:
                     stack.append(neighbor)
 
     def bfs(self, source):
-        print()
         queue = deque([source])
         visited = set()
 
@@ -70,9 +69,6 @@ class AdjMatrix:
     def print_graph(self):
         for row in range(self.size):
             print(self.graph[row])
-
-    def clear(self):
-        pass
 
     def neighbors(self, vertex):
         neighbors = []
@@ -98,39 +94,6 @@ class AdjMatrix:
                     dfs(neighbor)
 
         return dfs(0) or False
-
-    def edge_count(self):
-        pass
-
-    def find_path(self, start, end):
-        pass
-
-    def dijkstra(self, start):
-        pass
-
-    def is_cyclic(self):
-        pass
-
-    def topological_sort(self):
-        pass
-
-    # def add_vertex(self, vertex):
-    #     pass
-
-    # def remove_vertex(self, vertex):
-    # pass
-
-    # def vertex_count(self):
-    #     pass
-
-    # def edge_count(self):
-    #     pass
-
-    # def neighbors(self):
-    #     pass
-
-    # def is_directed(self):
-    #     pass
 
 
 if __name__ == "__main__":

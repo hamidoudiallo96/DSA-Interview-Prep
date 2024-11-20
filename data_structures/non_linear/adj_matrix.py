@@ -27,7 +27,7 @@ class AdjMatrix:
                 print(vertex, end=", ")
                 visited.add(vertex)
 
-            for neighbor in range(self.size):
+            for neighbor in range(self.size - 1, -1, -1):
                 if self.graph[vertex][neighbor] == 1 and neighbor not in visited:
                     dfs(neighbor)
 
@@ -74,11 +74,51 @@ class AdjMatrix:
     def clear(self):
         pass
 
+    def neighbors(self, vertex):
+        neighbors = []
+
+        for neighbor in range(self.size):
+            if self.graph[vertex][neighbor] == 1:
+                neighbors.append(neighbor)
+
+        return neighbors
+
+    def is_connected(self):
+        visited = set()
+
+        def dfs(vertex):
+            if vertex not in visited:
+                visited.add(vertex)
+
+            if vertex in visited:
+                return True
+
+            for neighbor in range(self.size - 1, -1, -1):
+                if self.graph[vertex][neighbor] == 1:
+                    dfs(neighbor)
+
+        return dfs(0) or False
+
+    def edge_count(self):
+        pass
+
+    def find_path(self, start, end):
+        pass
+
+    def dijkstra(self, start):
+        pass
+
+    def is_cyclic(self):
+        pass
+
+    def topological_sort(self):
+        pass
+
     # def add_vertex(self, vertex):
     #     pass
 
     # def remove_vertex(self, vertex):
-    pass
+    # pass
 
     # def vertex_count(self):
     #     pass
@@ -103,9 +143,15 @@ if __name__ == "__main__":
     graph.add_edge(4, 2)
     graph.add_edge(5, 0)
     graph.print_graph()
+
     print("Depth First Search Iter")
     graph.dfs_iter(0)
     print("\nDepth First Search Recur")
     graph.dfs_recur(0)
+
     print("\nBreadth First Search")
     graph.bfs(0)
+    print()
+
+    print(graph.neighbors(2))
+    print(graph.is_connected())

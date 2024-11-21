@@ -161,7 +161,7 @@ class AdjList:
             visited.add(current)
 
             for neighbor in self.graph[current]:
-                if current == parent:
+                if neighbor == parent:
                     continue
                 if neighbor in path:
                     return True

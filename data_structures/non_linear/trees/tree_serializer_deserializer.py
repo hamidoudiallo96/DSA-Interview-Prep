@@ -1,4 +1,4 @@
-from binary_search_tree import TreeNode
+from data_structures.non_linear.trees.binary_search_tree import TreeNode
 
 
 class Codec:

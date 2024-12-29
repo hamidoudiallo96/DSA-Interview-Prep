@@ -13,7 +13,7 @@ class SinglyLinkedList:
         self.tail = None
         self.size = 0
 
-    def add_at_head(self, val):  # add_at_head
+    def add_at_head(self, val):
         new_node = ListNode(val)
 
         if self.is_empty():
@@ -26,7 +26,7 @@ class SinglyLinkedList:
         self.head.next = next_node
         self.size += 1
 
-    def add_at_tail(self, val):  # add_at_tail
+    def add_at_tail(self, val):
         new_node = ListNode(val)
 
         if self.is_empty():
@@ -39,7 +39,7 @@ class SinglyLinkedList:
         self.tail = new_node
         self.size += 1
 
-    def add(self, val, pos):  # add
+    def add(self, val, pos):
         if pos < 0 or pos > self.size:
             raise IndexError()
 
@@ -58,7 +58,7 @@ class SinglyLinkedList:
         new_node.next = next_node
         self.size += 1
 
-    def remove_at_head(self):  # remove_at_head
+    def remove_at_head(self):
         if self.is_empty():
             return -1
 
@@ -67,7 +67,7 @@ class SinglyLinkedList:
         self.size -= 1
         return node_to_remove
 
-    def remove_at_tail(self):  # remove_at_tail
+    def remove_at_tail(self):
         if self.is_empty():  # empty list
             return -1
 
@@ -88,7 +88,7 @@ class SinglyLinkedList:
         self.size -= 1
         return node_to_remove
 
-    def remove(self, pos):  # remove
+    def remove(self, pos):
         if pos < 0 or pos > self.size:
             raise IndexError()
 
@@ -107,7 +107,7 @@ class SinglyLinkedList:
         self.size -= 1
         return node_to_remove
 
-    def get(self, pos):  # get
+    def get(self, pos):
         if pos < 0 or pos > self.size:
             raise IndexError()
 
@@ -122,7 +122,7 @@ class SinglyLinkedList:
 
         return current if current else -1
 
-    def reverse(self):  # reverse
+    def reverse(self):
         if self.is_empty():
             return None
 
@@ -138,7 +138,7 @@ class SinglyLinkedList:
         self.head = prev
         return self.head
 
-    def find(self, value):  # find
+    def find(self, value):
         if self.is_empty():
             print("The list is empty.")
             return
@@ -152,10 +152,10 @@ class SinglyLinkedList:
             current = current.next
         return False
 
-    def is_empty(self):  # is_empty
+    def is_empty(self):
         return self.size == 0
 
-    def print_list(self):  # print_list
+    def print_list(self):
         if self.is_empty():
             print("The list is empty.")
             return

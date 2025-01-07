@@ -27,7 +27,7 @@ class MyQueue:
         return self.s2[-1]
 
     def is_empty(self) -> bool:
-        return not self.s1 and not self.s2  #
+        return not self.s1 and not self.s2
 
 
 if __name__ == "__main__":
@@ -35,5 +35,10 @@ if __name__ == "__main__":
 
     q.push(1)
     q.push(2)
+    q.push(-5)
+    q.push(12)
+    print(q.pop())
+    print(q.peek())
+    print(q.pop())
 
     print(q.s1, q.s2)
